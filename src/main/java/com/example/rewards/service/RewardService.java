@@ -53,7 +53,7 @@ public class RewardService {
     private RewardResponse buildRewardResponse(Long customerId,
                                                List<Transaction> transactions) {
 
-        String customerName = transactions.getFirst().getCustomerName();
+        String customerName = transactions.get(0).getCustomerName();
 
         Map<String, Long> monthlyRewards = transactions.stream()
                 .collect(Collectors.groupingBy(
