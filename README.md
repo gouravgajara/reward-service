@@ -42,3 +42,104 @@ mvn test
 - Exception handling
 - JavaDocs-ready clean structure
 - Java 17 compatible
+
+## API Endpoints
+Get rewards for a customer
+GET /api/rewards/{customerId}
+Example:
+
+http://localhost:8080/api/rewards/101
+
+## Sample Response
+{
+  "customerId": 101,
+  "customerName": "John",
+  "monthlyRewards": [
+    {
+      "month": "May",
+      "points": 250
+    },
+    {
+      "month": "March",
+      "points": 90
+    },
+    {
+      "month": "April",
+      "points": 25
+    }
+  ],
+  "totalRewards": 365
+} 
+
+## Get rewards for all customers
+GET /api/rewards
+
+## Sample Response
+[
+  {
+    "customerId": 101,
+    "customerName": "John",
+    "monthlyRewards": [
+      {
+        "month": "May",
+        "points": 250
+      },
+      {
+        "month": "March",
+        "points": 90
+      },
+      {
+        "month": "April",
+        "points": 25
+      }
+    ],
+    "totalRewards": 365
+  },
+  {
+    "customerId": 102,
+    "customerName": "Smith",
+    "monthlyRewards": [
+      {
+        "month": "May",
+        "points": 110
+      },
+      {
+        "month": "March",
+        "points": 0
+      },
+      {
+        "month": "April",
+        "points": 45
+      }
+    ],
+    "totalRewards": 155
+  },
+  {
+    "customerId": 103,
+    "customerName": "David",
+    "monthlyRewards": [
+      {
+        "month": "May",
+        "points": 10
+      },
+      {
+        "month": "March",
+        "points": 150
+      },
+      {
+        "month": "April",
+        "points": 290
+      }
+    ],
+    "totalRewards": 450
+  }
+]
+
+## Error Case (Customer Not Found)
+http://localhost:8080/api/rewards/501
+
+## Error Response 
+{"error":"Customer not found with id: 501"}
+
+## Author 
+Gourav Gajara
