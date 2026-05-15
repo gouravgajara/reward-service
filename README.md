@@ -17,14 +17,6 @@ Example:
 - Purchase of $120
 - 2 * 20 + 1 * 50 = 90 points
 
-## REST Endpoints
-
-### Get all customer rewards
-GET /api/rewards
-
-### Get reward by customer id
-GET /api/rewards/{customerId}
-
 ## Run Application
 
 mvn spring-boot:run
@@ -44,13 +36,14 @@ mvn test
 - Java 17 compatible
 
 ## API Endpoints
-Get rewards for a customer
+## Get rewards for a customer
 GET /api/rewards/{customerId}
-Example:
 
+## Example:
 http://localhost:8080/api/rewards/101
 
 ## Sample Response
+```json
 {
   "customerId": 101,
   "customerName": "John",
@@ -70,11 +63,13 @@ http://localhost:8080/api/rewards/101
   ],
   "totalRewards": 365
 } 
+```
 
 ## Get rewards for all customers
 GET /api/rewards
 
 ## Sample Response
+```json
 [
   {
     "customerId": 101,
@@ -134,12 +129,14 @@ GET /api/rewards
     "totalRewards": 450
   }
 ]
-
+```
 ## Error Case (Customer Not Found)
 http://localhost:8080/api/rewards/501
 
 ## Error Response 
+```json
 {"error":"Customer not found with id: 501"}
+```
 
 ## Author 
 Gourav Gajara
